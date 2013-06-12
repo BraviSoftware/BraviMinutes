@@ -124,7 +124,6 @@
   <ItemGroup>
     <Compile Include="App_Start\DurandalBundleConfig.cs" />
     <Compile Include="App_Start\DurandalConfig.cs" />
-    <Compile Include="Controllers\DurandalController.cs" />
     <Compile Include="Controllers\MinutesController.cs" />
     <Compile Include="DTOs\AttendeeDTOs.cs" />
     <Compile Include="DTOs\MinuteDTOs.cs" />
@@ -204,10 +203,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
-    <Content Include="Views\Durandal\Index.cshtml" />
-    <Content Include="Views\Durandal\_splash.cshtml" />
+    <Content Include="Index.cshtml" />
+    <Content Include="_splash.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
