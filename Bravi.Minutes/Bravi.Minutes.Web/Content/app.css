@@ -3,21 +3,21 @@
     margin: 10% 0 0 0;
 }
 
-.splash .message {
-    font-size: 5em;
-    line-height: 1.5em;
-    -webkit-text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 15px;
-    text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 15px;
-    text-transform: uppercase;
-}
+    .splash .message {
+        font-size: 5em;
+        line-height: 1.5em;
+        -webkit-text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 15px;
+        text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 15px;
+        text-transform: uppercase;
+    }
 
-.splash .icon-spinner {
-    text-align: center;
-    display: inline-block;
-    font-size: 5em;
-    margin-top: 50px;
-    color:white;
-}
+    .splash .icon-spinner {
+        text-align: center;
+        display: inline-block;
+        font-size: 5em;
+        margin-top: 50px;
+        color: white;
+    }
 
 .page-host {
     position: relative;
@@ -30,18 +30,18 @@
 }
 
 .navbar-fixed-top .icon-home {
-    font-size: 18px
+    font-size: 18px;
 }
 
 .loader {
     margin: 6px 8px 4px 8px;
     visibility: hidden;
-    color:white;
+    color: white;
 }
 
-.loader.active {
-    visibility: visible;
-}
+    .loader.active {
+        visibility: visible;
+    }
 
 @media (max-width: 979px) {
     .page-host {
@@ -51,4 +51,12 @@
     .navbar-fixed-top {
         margin-bottom: 0;
     }
+}
+
+body {
+    font-family: 'Orienta', sans-serif;
+}
+
+h1, h2, h3, h4, h5, .brand, .splash {
+    font-family: 'Germania One', cursive;
 }
