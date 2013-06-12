@@ -6,8 +6,8 @@
 
             return $.when(service.getById(routeData.id)).done(minute);
         },
-	    goToEdit = function () {
-	        var url = '#/minutes-form/' + minute.id;
+	    goToEdit = function (data, event) {
+	        var url = '#/minutes-form/' + data.id;
 	        router.navigateTo(url);
 	    },
 	    goBack = function (argument) {

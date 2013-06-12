@@ -19,9 +19,36 @@ define(['durandal/app', 'durandal/viewLocator', 'durandal/system', 'durandal/plu
 
             //configure routing
             router.useConvention();
-            router.mapNav('minutes');
-            router.mapNav('minutes-form/:id');
-            router.mapNav('minutes-show/:id');
+            router.map([
+            {
+                url: 'minutes',
+                moduleId: 'viewmodels/minutes',
+                name: 'Minutes',
+                visible: true,
+                caption: 'Minutes'
+            },
+            {
+                url: 'minutes-show/:id',
+                moduleId: 'viewmodels/minutes-show',
+                name: 'Minutes',
+                visible: true,
+                caption: 'Minutes'
+            },
+            {
+                url: 'minutes-form',
+                moduleId: 'viewmodels/minutes-form',
+                name: 'Minutes',
+                visible: true,
+                caption: 'Minutes'
+            },
+            {
+                url: 'minutes-form/:id',
+                moduleId: 'viewmodels/minutes-form',
+                name: 'Minutes',
+                visible: true,
+                caption: 'Minutes'
+            }
+            ]);
 
             app.adaptToDevice();
 

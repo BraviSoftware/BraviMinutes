@@ -1,6 +1,6 @@
 ﻿<!-- Forms
   ================================================== -->
-<section id="forms">
+<section id="forms" data-bind="with: minute">
     <div class="row">
         <div class="span10 offset1">
             <form class="form-horizontal well">
@@ -9,7 +9,7 @@
                     <div class="control-group">
                         <label class="control-label" for="input01">Subject</label>
                         <div class="controls">
-                            <input type="text" class="input-xxlarge" id="input01">
+                            <input type="text" class="input-xxlarge" id="input01" data-bind="value: subject">
                         </div>
                     </div>
                     <div class="control-group">
@@ -21,24 +21,27 @@
                     <div class="control-group">
                         <label class="control-label" for="date">Date</label>
                         <div class="controls">
-                            <input type="text" class="input" id="date">
+                            <input type="text" class="input" id="date" data-bind="value: date">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="multiSelect">Attendantes</label>
-                        <div class="controls">
-                            <select multiple="multiple" id="multiSelect">
-                                <option>Alex</option>
-                                <option>Daniel</option>
-                                <option>Danillo</option>
-                                <option>Guilherme</option>
-                                <option>Max</option>
-                            </select>
+                        <label class="control-label" for="multiSelect">Attendees</label>
+                        <div class="controls" data-bind="foreach: attendees">
+                            <input type="checkbox" value="">
+                            <span data-bind="text: name"></span>
                         </div>
+
+
+                        <!-- <label class="control-label" for="multiSelect">Attendees</label>
+                        <div class="controls">
+                            <select multiple="multiple" id="multiSelect" data-bind="foreach: attendees">
+                                <option data-bind="text: name"></option>
+                            </select>
+                        </div>-->
                     </div>
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                        <button type="reset" class="btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary" data-bind="click: $root.save">Save changes</button>
+                        <button type="reset" class="btn" data-bind="click: $root.cancel">Cancel</button>
                     </div>
                 </fieldset>
             </form>
