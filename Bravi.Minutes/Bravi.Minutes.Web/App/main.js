@@ -19,24 +19,9 @@ define(['durandal/app', 'durandal/viewLocator', 'durandal/system', 'durandal/plu
 
             //configure routing
             router.useConvention();
-
-            //router.map([
-            //    {
-            //        url: 'category/show',
-            //        moduleId: modulesId.category.show,
-            //        name: '<i class="icon-tag"></i> Categories',
-            //        visible: true,
-            //        caption: 'Categories',
-            //        settings: {
-            //            classColor: 'blue',
-            //            classIcon: 'icon-tag',
-            //            parentModule: modulesId.welcome
-            //        }
-            //    }
-            //]);
             router.mapNav('minutes');
-            router.mapNav('minutes-form');
-            router.mapNav('minutes-show');
+            router.mapNav('minutes-form/:id');
+            router.mapNav('minutes-show/:id');
 
             app.adaptToDevice();
 

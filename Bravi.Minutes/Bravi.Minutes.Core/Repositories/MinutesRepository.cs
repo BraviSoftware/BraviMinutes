@@ -14,7 +14,7 @@ namespace Bravi.Minutes.Core.Repositories
 
         public IEnumerable<Minute> GetLatestMinutes()
         {
-            return context.Minutes.OrderByDescending(minute => minute.Date);
+            return context.Minutes.Include("Attendees").OrderByDescending(minute => minute.Date);
         }
 
         public Minute GetMinute(int id)
