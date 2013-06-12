@@ -31,14 +31,34 @@
                     };
                 }
             };
+
+            if (routeData && routeData.id)
+                return $.when(service.getById(routeData.id)).done(minute);
+            else
+                minute(new Minute());
         },
 	    save = function (data, event) {
-	        var url = '#/minutes-form/' + data.id;
-	        router.navigateTo(url);
+	        if (minute() && minute().id && minute().id() > 0)
+	            service.update(minute());
+	        else
+	            service.create(minute());
 	    },
 	    cancel = function (argument) {
 	        router.navigateTo('#/');
 	    };
+
+    var Minute = function () {
+        var self = this;
+
+        self.attendees = ko.observable([]);
+        self.id = ko.observable(0);
+        self.date = ko.observable(new Date());
+        self.subject = ko.observable('');
+        self.notes = ko.observable('');
+        self.totalAttendees = ko.observable(0);
+
+        return self;
+    };
 
     return {
         minute: minute,

@@ -20,6 +20,7 @@ namespace Bravi.Minutes.Web.Controllers
             this._unitOfWork = new UnitOfWorkEf();
         }
 
+        // GET api/minutes
         public IEnumerable<MinuteSmallDTO> Get()
         {
             return
@@ -27,6 +28,7 @@ namespace Bravi.Minutes.Web.Controllers
                            .Select(MinuteSmallDTO.FromMinuteEntity);
         }
 
+        // GET api/minutes/5
         public MinuteFullDTO Get(int id)
         {
             var minute = _unitOfWork.MinutesRepository.GetMinute(id);
@@ -36,7 +38,7 @@ namespace Bravi.Minutes.Web.Controllers
             return MinuteFullDTO.FromMinuteEntity(minute);
         }
 
-        //// POST api/minute
+        // POST api/minutes
         public void Post(MinuteFullDTO minuteToAdd)
         {
             if (minuteToAdd == null)
@@ -63,12 +65,40 @@ namespace Bravi.Minutes.Web.Controllers
             _unitOfWork.Commit();
         }
 
-        //// PUT api/minute/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
+        // PUT api/minutes/5
+        public void Put(int id, MinuteFullDTO minuteToAdd)
+        {
+            //if (minuteToAdd == null)
+            //    throw new HttpResponseException(HttpStatusCode.NoContent);
 
-        //// DELETE api/minute/5
+
+            //var minuteDb = _unitOfWork.MinutesRepository.GetMinute(id);
+            //if (minuteDb == null)
+            //    throw new HttpResponseException(HttpStatusCode.NotFound);
+
+
+            ////var response = new HttpResponseMessage();
+
+            //var minuteDb = MinuteFullDTO.AsMinute(minuteToAdd);
+            //minute.Attendees = new Collection<Attendee>();
+
+            //foreach (var attendee in minuteToAdd.Attendees)
+            //{
+            //    if (attendee.Id <= 0)
+            //        minute.Attendees.Add(AttendeeFullDTO.AsAttendee(attendee));
+            //    else
+            //    {
+            //        var attendeeFromDb = _unitOfWork.AttendeeRepository.GetById(attendee.Id);
+            //        if (attendeeFromDb != null)
+            //            minute.Attendees.Add(attendeeFromDb);
+            //    }
+            //}
+
+            //_unitOfWork.MinutesRepository.AddMinute(minuteDb);
+            //_unitOfWork.Commit();
+        }
+
+        //// DELETE api/minutes/5
         //public void Delete(int id)
         //{
         //}
