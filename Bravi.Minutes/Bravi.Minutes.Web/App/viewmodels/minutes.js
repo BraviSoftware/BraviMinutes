@@ -5,7 +5,7 @@
             return $.when(service.getAll()).done(minutes);
         },
         goToNew = function () {
-            router.navigateTo('#/minutes-form/');
+            router.navigateTo('#/minutes-form');
         },
         goToShowFullMinute = function (data, event) {
             var url = '#/minutes-show/' + data.id;

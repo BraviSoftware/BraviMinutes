@@ -125,6 +125,7 @@
   <ItemGroup>
     <Compile Include="App_Start\DurandalBundleConfig.cs" />
     <Compile Include="App_Start\DurandalConfig.cs" />
+    <Compile Include="Controllers\AttendeesController.cs" />
     <Compile Include="Controllers\MinutesController.cs" />
     <Compile Include="DTOs\AttendeeDTOs.cs" />
     <Compile Include="DTOs\MinuteDTOs.cs" />
@@ -159,6 +160,8 @@
     <Content Include="App\durandal\widget.js" />
     <Content Include="App\main-built.js" />
     <Content Include="App\main.js" />
+    <Content Include="App\model\attendee.js" />
+    <Content Include="App\services\attendees-service.js" />
     <Content Include="App\viewmodels\flickr.js" />
     <Content Include="App\viewmodels\minutes-form.js" />
     <Content Include="App\services\minutes-service.js" />

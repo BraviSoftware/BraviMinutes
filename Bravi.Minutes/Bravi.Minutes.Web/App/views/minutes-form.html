@@ -26,8 +26,8 @@
                     </div>
                     <div class="control-group">
                         <label class="control-label" for="multiSelect">Attendees</label>
-                        <div class="controls" data-bind="foreach: attendees">
-                            <input type="checkbox" value="">
+                        <div class="controls" data-bind="foreach: $root.attendees">
+                            <input type="checkbox" data-bind="checked: selected">
                             <span data-bind="text: name"></span>
                         </div>
 
