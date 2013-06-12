@@ -1,7 +1,7 @@
 ﻿define(['services/minutes-service', 'durandal/plugins/router'], function (service, router) {
 
     var
-	    minute = ko.observable(),
+	    minute = ko.observable({}),
         activate = function (routeData) {
             if (routeData && routeData.id)
                 $.when(service.getById(routeData.id)).done(minute);
