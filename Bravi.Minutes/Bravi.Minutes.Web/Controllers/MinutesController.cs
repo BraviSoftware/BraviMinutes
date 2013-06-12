@@ -24,7 +24,7 @@ namespace Bravi.Minutes.Web.Controllers
         {
             return
                 _unitOfWork.MinutesRepository.GetLatestMinutes()
-                           .Select(minute => MinuteSmallDTO.FromMinuteEntity(minute));
+                           .Select(MinuteSmallDTO.FromMinuteEntity);
         }
 
         public MinuteFullDTO Get(int id)
