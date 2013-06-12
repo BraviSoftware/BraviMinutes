@@ -8,7 +8,7 @@
             app.showMessage('Search not yet implemented...');
         },
         activate: function () {
-            return router.activate('welcome');
+            return router.activate('minutes');
         }
     };
 });
