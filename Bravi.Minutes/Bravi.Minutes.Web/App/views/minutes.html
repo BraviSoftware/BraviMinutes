@@ -10,7 +10,7 @@
             <h3>
                 <span data-bind="text: subject"></span>
                 <span class="pull-right">
-                    <strong data-bind="text: $root.formateDate(date)"></strong>
+                    <strong data-bind="formateDate: date"></strong>
                 </span>
             </h3>
             <div class="well">
@@ -18,7 +18,7 @@
                 <hr>
                 <div class="row">
                     <div class="span2">
-                        <a class="btn btn-small btn-primary" href="#/minutes-show"><i class="icon-external-link-sign icon-white"></i>Read more...</a>
+                        <a class="btn btn-small btn-primary" data-bind="click: $root.goToShowFullMinute"><i class="icon-external-link-sign icon-white"></i>Read more...</a>
                     </div>
                     <div class="pull-right">
                         <span class="badge badge-info">

@@ -16,6 +16,7 @@
     display: inline-block;
     font-size: 5em;
     margin-top: 50px;
+    color:white;
 }
 
 .page-host {
@@ -35,6 +36,7 @@
 .loader {
     margin: 6px 8px 4px 8px;
     visibility: hidden;
+    color:white;
 }
 
 .loader.active {

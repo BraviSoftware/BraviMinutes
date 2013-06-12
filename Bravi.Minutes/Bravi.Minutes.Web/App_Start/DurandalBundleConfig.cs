@@ -16,6 +16,7 @@ namespace Bravi.Minutes.Web
                 .Include("~/Scripts/knockout-{version}.js")
                 .Include("~/Scripts/sammy-{version}.js")
                 .Include("~/Scripts/bootstrap.min.js")
+                .Include("~/Scripts/knockout.custom.binding.handlers.js")
               );
 
             bundles.Add(
@@ -25,6 +26,7 @@ namespace Bravi.Minutes.Web
                 .Include("~/Content/bootstrap-responsive.min.css")
                 .Include("~/Content/font-awesome.min.css")
                 .Include("~/Content/durandal.css")
+                .Include("~/Content/app.css")
                 .Include("~/Content/bootswatch.css")
               );
         }

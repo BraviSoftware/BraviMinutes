@@ -4,7 +4,7 @@
     <h3>
         <span data-bind="text: subject"></span>
         <span class="pull-right">
-            <strong data-bind="text: date"></strong>
+            <strong data-bind="formateDate: date"></strong>
         </span>
     </h3>
     <div class="well">
@@ -12,7 +12,7 @@
         <hr>
         <span class="badge badge-info">
             <i class="icon-user"></i>
-            <span data-bind="text: totalAttendees"></span>
+            <span data-bind="text: attendees.length"></span>
              Attendants
         </span>
         <ul data-bind="foreach: attendees">
