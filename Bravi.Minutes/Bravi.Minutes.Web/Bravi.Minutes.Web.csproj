@@ -161,6 +161,7 @@
     <Content Include="App\main-built.js" />
     <Content Include="App\main.js" />
     <Content Include="App\model\attendee.js" />
+    <Content Include="App\model\minute.js" />
     <Content Include="App\services\attendees-service.js" />
     <Content Include="App\viewmodels\flickr.js" />
     <Content Include="App\viewmodels\minutes-form.js" />
