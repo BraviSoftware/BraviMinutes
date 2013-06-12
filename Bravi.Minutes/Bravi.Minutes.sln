@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bravi.Minutes.Web", "Bravi.Minutes.Web\Bravi.Minutes.Web.csproj", "{E6839BAD-E570-475C-888D-CEAD19A8450B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bravi.Minutes.Core", "Bravi.Minutes.Core\Bravi.Minutes.Core.csproj", "{98203404-71CB-45E9-A6BB-CAA81502FF3A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9388AC97-4400-4EED-AB70-04040912C3C4}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6839BAD-E570-475C-888D-CEAD19A8450B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6839BAD-E570-475C-888D-CEAD19A8450B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6839BAD-E570-475C-888D-CEAD19A8450B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6839BAD-E570-475C-888D-CEAD19A8450B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98203404-71CB-45E9-A6BB-CAA81502FF3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98203404-71CB-45E9-A6BB-CAA81502FF3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98203404-71CB-45E9-A6BB-CAA81502FF3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98203404-71CB-45E9-A6BB-CAA81502FF3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
