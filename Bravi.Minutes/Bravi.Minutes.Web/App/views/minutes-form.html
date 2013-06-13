@@ -9,19 +9,19 @@
                     <div class="control-group">
                         <label class="control-label" for="input01">Subject</label>
                         <div class="controls">
-                            <input type="text" class="input-xxlarge" id="input01" data-bind="value: subject">
+                            <input type="text" class="input-xxlarge" id="input01" data-bind="value: subject" placeholder="Domain Driven Design">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" for="textarea">Notes</label>
                         <div class="controls">
-                            <textarea class="input-xxlarge" id="textarea" rows="3" data-bind="value: notes"></textarea>
+                            <textarea class="input-xxlarge" id="textarea123" rows="10" data-bind="wysihtml5: notes" placeholder="This meeting..."></textarea>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" for="date">Date</label>
                         <div class="controls">
-                            <input type="text" class="input" id="date" data-bind="value: date">
+                            <input type="text" class="input" id="date" data-bind="formateDate: date" placeholder="01/06/2013">
                         </div>
                     </div>
                     <div class="control-group">

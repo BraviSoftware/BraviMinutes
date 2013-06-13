@@ -1,14 +1,23 @@
 ﻿define(['durandal/plugins/router', 'durandal/app'], function (router, app) {
 
+    var
+        router = router,
+        search = ko.observable(),
+        activate = function () {
+            return router.activate('minutes');
+        },
+        isHome = ko.computed(function () {
+            var activeItem = router.activeItem;
+            var isHome = activeItem && activeItem() && (router.visibleRoutes()[0].moduleId === activeItem().__moduleId__);
+            if (!isHome)
+                search('');
+            return isHome;
+        });
+
     return {
         router: router,
-        search: function() {
-            //It's really easy to show a message box.
-            //You can add custom options too. Also, it returns a promise for the user's response.
-            app.showMessage('Search not yet implemented...');
-        },
-        activate: function () {
-            return router.activate('minutes');
-        }
+        search: search,
+        activate: activate,
+        isHome: isHome
     };
 });

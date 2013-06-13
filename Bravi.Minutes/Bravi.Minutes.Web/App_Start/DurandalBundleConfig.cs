@@ -16,12 +16,15 @@ namespace Bravi.Minutes.Web
                 .Include("~/Scripts/knockout-{version}.js")
                 .Include("~/Scripts/sammy-{version}.js")
                 .Include("~/Scripts/bootstrap.min.js")
+                .Include("~/Scripts/wysihtml5-0.3.0_rc2.js")
+                .Include("~/Scripts/bootstrap-wysihtml5-0.0.2.js")
                 .Include("~/Scripts/knockout.custom.binding.handlers.js")
               );
 
             bundles.Add(
               new StyleBundle("~/Content/css")
                 .Include("~/Content/ie10mobile.css")
+                .Include("~/Content/bootstrap-wysihtml5-0.0.2.css")
                 .Include("~/Content/bootstrap.min.css")
                 .Include("~/Content/bootstrap-responsive.min.css")
                 .Include("~/Content/font-awesome.min.css")
