@@ -13,7 +13,7 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="textarea">Descripton</label>
+                        <label class="control-label" for="textarea">Notes</label>
                         <div class="controls">
                             <textarea class="input-xxlarge" id="textarea" rows="3" data-bind="value: notes"></textarea>
                         </div>
@@ -25,10 +25,14 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="multiSelect">Attendees</label>
-                        <div class="controls" data-bind="foreach: $root.attendees">
-                            <input type="checkbox" data-bind="checked: selected">
-                            <span data-bind="text: name"></span>
+                        <label class="control-label">Attendees</label>
+                        <div class="controls">
+                            <ul class="ul-attendees" data-bind="foreach: $parent.attendees">
+                                <li>
+                                    <input type="checkbox" data-bind="checked: selected">
+                                    <span data-bind="text: name"></span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <div class="form-actions">

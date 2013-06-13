@@ -1,42 +1,47 @@
 ﻿define(['services/minutes-service', 'services/attendees-service', 'model/attendee', 'model/minute', 'durandal/plugins/router'],
     function (serviceMinutes, serviceAttendees, Attendee, Minute, router) {
 
-        var
-            minute = ko.observable({}),
+        var minute = ko.observable({}),
             attendees = ko.observableArray([]),
-
             activate = function (routeData) {
                 // Fetch default model
                 minute(new Minute());
 
-                //~> Remove it after implement atteendees load
-                if (routeData && routeData.id && routeData.id > 0)
-                    $.when(serviceMinutes.getById(routeData.id, minute));
-                //~> End
+                var deffered = $.Deferred();
 
                 $.when(serviceAttendees.getAll()).done(attendeesLoaded);
 
-                var attendeesLoaded = function (attendeesData) {
-                    attendees(attendeesData);
+                function attendeesLoaded(attendeesData) {
+                    fillAttendees(attendeesData);
 
                     if (!routeData || !routeData.id || routeData.id <= 0) return;
 
-                    $.when(serviceMinutes.getById(routeData.id)).done(successMinutesCall);
+                    $.when(serviceMinutes.getById(routeData.id)).done(function (minutesData) { successMinutesCall(attendeesData, minutesData); });
 
-                    var successMinutesCall = function (minuteData) {
+                    function successMinutesCall(attendeeData, minuteData) {
                         minute(minuteData);
 
-                        $(attendeeData).each(function (index, item) {
+                        $(attendees()).each(function (index, item) {
                             var hasAttendee = minuteData.attendees.filter(function (o) {
                                 return o.id === item.id;
                             });
 
-                            attendeeList.push(new Attendee(item.id, item.name, hasAttendee));
+                            item.selected(hasAttendee && hasAttendee.length > 0);
                         });
 
-                        attendees(attendeeList);
+                        deffered.resolve();
                     };
                 };
+
+                return deffered.promise();
+            },
+            fillAttendees = function (attendeesCollection) {
+                var attendeeList = [];
+                $(attendeesCollection).each(function (index, item) {
+                    attendeeList.push(new Attendee(item.id, item.name));
+                });
+
+                attendees(attendeeList);
             },
             save = function (data, event) {
                 if (minute() && minute().id && minute().id() > 0)
@@ -47,8 +52,6 @@
             cancel = function (argument) {
                 router.navigateTo('#/');
             };
-
-
 
         return {
             minute: minute,
