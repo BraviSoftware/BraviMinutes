@@ -14,12 +14,15 @@
                 function attendeesLoaded(attendeesData) {
                     fillAttendees(attendeesData);
 
-                    if (!routeData || !routeData.id || routeData.id <= 0) return;
+                    if (!routeData || !routeData.id || routeData.id <= 0) {
+                        deffered.resolve();
+                        return;
+                    }
 
                     $.when(serviceMinutes.getById(routeData.id)).done(function (minutesData) { successMinutesCall(attendeesData, minutesData); });
 
                     function successMinutesCall(attendeeData, minuteData) {
-                        minute(minuteData);
+                        minute(new Minute(minuteData.id, minuteData.date, minuteData.subject, minuteData.notes, minuteData.totalAttendees));
 
                         $(attendees()).each(function (index, item) {
                             var hasAttendee = minuteData.attendees.filter(function (o) {
@@ -44,6 +47,14 @@
                 attendees(attendeeList);
             },
             save = function (data, event) {
+                
+                //get right attendees
+                var selectedAttendees = attendees().filter(function(o) {
+                    return o.selected() === true;
+                });
+
+                minute().attendees(selectedAttendees);
+
                 if (minute() && minute().id && minute().id() > 0)
                     serviceMinutes.update(minute());
                 else
