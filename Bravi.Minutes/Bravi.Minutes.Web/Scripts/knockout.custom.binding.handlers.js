@@ -50,28 +50,27 @@
     // Wysihtml5
     //-------------------------
     ko.bindingHandlers.wysihtml5 = {
-        init: function (element, valueAccessor, allBindingsAccessor, viewModel) {
+        init: function (element, valueAccessor, allBindingsAccessor) {
             setTimeout(function () {
-                var control = $(element).wysihtml5({
-                    "events": {
-                        "change": function () {
-                            var observable = valueAccessor();
-                            observable(control.getValue());
+                    var control = $(element).wysihtml5({
+                        "events": {
+                            "change": function () {
+                                var observable = valueAccessor();
+                                observable(control.getValue());
+                            }
                         }
-                    }
-                }).data("wysihtml5").editor;
-            }, 300);
-
+                    }).data("wysihtml5").editor;
+                
+            }, 100);
         },
-        update: function (element, valueAccessor, allBindingsAccessor, viewModel) {
-            var content = valueAccessor();
-
-            if (content != undefined) {
-                setTimeout(function () {
+        update: function (element, valueAccessor, allBindingsAccessor) {
+            setTimeout(function(){
+                var content = valueAccessor();
+                if (content) {
                     var control = $(element).data("wysihtml5").editor;
                     control.setValue(content());
-                }, 350);
-            }
+                }
+            }, 150);
         }
     };
 
@@ -87,5 +86,5 @@
         }
     };
 
-   
+
 })();

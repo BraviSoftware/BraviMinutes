@@ -4,9 +4,7 @@
         var minute = ko.observable({}),
             attendees = ko.observableArray([]),
             activate = function (routeData) {
-                // Fetch default model
-                minute(new Minute());
-
+                
                 var deffered = $.Deferred();
 
                 $.when(serviceAttendees.getAll()).done(attendeesLoaded);
@@ -15,6 +13,7 @@
                     fillAttendees(attendeesData);
 
                     if (!routeData || !routeData.id || routeData.id <= 0) {
+                        minute(new Minute());
                         deffered.resolve();
                         return;
                     }
