@@ -50,15 +50,19 @@ namespace Bravi.Minutes.Web.DTOs
             return new MinuteFullDTO(minute.Id, minute.Date, minute.Subject, minute.Notes,
                 minute.Attendees.Select(attendee => AttendeeFullDTO.FromAttendee(attendee)).ToArray());
         }
+
         public static Minute AsMinute(MinuteFullDTO minuteFullDto)
         {
-            return new Minute()
-            {
-                Id = minuteFullDto.Id,
-                Subject = minuteFullDto.Subject,
-                Date = minuteFullDto.Date,
-                Notes = minuteFullDto.Notes
-            };
+            return AsMinute(minuteFullDto, new Minute());
+        }
+
+        public static Minute AsMinute(MinuteFullDTO minuteFullDto, Minute minuteEntity)
+        {
+            minuteEntity.Id = minuteFullDto.Id;
+            minuteEntity.Subject = minuteFullDto.Subject;
+            minuteEntity.Date = minuteFullDto.Date;
+            minuteEntity.Notes = minuteFullDto.Notes;
+            return minuteEntity;
         }
     }
 }

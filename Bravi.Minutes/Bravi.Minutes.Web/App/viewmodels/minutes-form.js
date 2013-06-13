@@ -9,12 +9,17 @@
                 // Fetch default model
                 minute(new Minute());
 
+                //~> Remove it after implement atteendees load
+                if (routeData && routeData.id && routeData.id > 0)
+                    $.when(serviceMinutes.getById(routeData.id, minute));
+                //~> End
+
                 $.when(serviceAttendees.getAll()).done(attendeesLoaded);
 
                 var attendeesLoaded = function (attendeesData) {
                     attendees(attendeesData);
 
-                    if (!routeData || !routeData.id || routeData.id <= 0) return;                        
+                    if (!routeData || !routeData.id || routeData.id <= 0) return;
 
                     $.when(serviceMinutes.getById(routeData.id)).done(successMinutesCall);
 
@@ -35,9 +40,9 @@
             },
             save = function (data, event) {
                 if (minute() && minute().id && minute().id() > 0)
-                    service.update(minute());
+                    serviceMinutes.update(minute());
                 else
-                    service.create(minute());
+                    serviceMinutes.create(minute());
             },
             cancel = function (argument) {
                 router.navigateTo('#/');

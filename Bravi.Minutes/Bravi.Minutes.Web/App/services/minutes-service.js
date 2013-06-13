@@ -1,4 +1,4 @@
-﻿define(function () {
+﻿define(['model/minute'], function (Minute) {
     var url = '/api/minutes/';
     var service = {
 
@@ -6,8 +6,11 @@
             return $.get(url);
         },
 
-        getById: function (id) {
-            return $.get(url, { id: id });
+        getById: function (id, model) {
+            return $.get(url, { id: id }).done(function (data) {
+                var entity = new Minute(data.id, data.date, data.subject, data.notes, data.totalAttendees, data.attendees);
+                if (model && ko.isObservable(model)) model(entity);
+            });
         },
 
         create: function (data) {
@@ -19,7 +22,7 @@
         },
 
         update: function (data) {
-            return $.ajax(url + data().id(), {
+            return $.ajax(url + data.id(), {
                 data: ko.toJSON(data),
                 contentType: 'application/json',
                 type: 'PUT'
