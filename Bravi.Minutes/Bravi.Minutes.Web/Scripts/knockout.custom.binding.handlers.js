@@ -22,5 +22,25 @@
         }
     };
 
+    // Minutes Filter
+    //-------------------------
+    ko.bindingHandlers.minutesFilter = {
+        init: function (element, valueAccessor) {
+            $(document).on('keyup', element, function (event) {
+                var valueFilter = $(event.data).val();
 
+                $('article', '#minutes-list').filter(function (index) {
+                    return containsTilte(this, valueFilter);
+                }).slideDown();
+
+                $('article', '#minutes-list').filter(function (index) {
+                    return !containsTilte(this, valueFilter);
+                }).slideUp();
+            });
+
+            function containsTilte(article, filter) {
+                return $('.subject', article).text().toLowerCase().indexOf(filter.toLowerCase()) !== -1
+            }
+        }
+    };
 })();
