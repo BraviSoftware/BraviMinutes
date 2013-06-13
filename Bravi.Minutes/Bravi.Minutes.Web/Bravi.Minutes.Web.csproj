@@ -192,12 +192,15 @@
     <Content Include="Content\images\icon.png" />
     <Content Include="Content\images\ios-startup-image-landscape.png" />
     <Content Include="Content\images\ios-startup-image-portrait.png" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\font\fontawesome-webfont.woff" />
     <Content Include="Content\font\fontawesome-webfont.ttf" />
     <Content Include="Content\font\fontawesome-webfont.eot" />
     <Content Include="Content\font\FontAwesome.otf" />
     <Content Include="readme.md" />
+    <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap-wysihtml5-0.0.2.js" />
     <Content Include="Scripts\bootstrap-wysihtml5-0.0.2.min.js" />
@@ -210,6 +213,8 @@
     <Content Include="Scripts\knockout.custom.binding.handlers.js" />
     <Content Include="Scripts\sammy-0.7.4.js" />
     <Content Include="Scripts\sammy-0.7.4.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\wysihtml5-0.3.0_rc2.js" />
     <Content Include="Scripts\wysihtml5-0.3.0_rc2.min.js" />
     <Content Include="Web.config" />

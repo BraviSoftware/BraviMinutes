@@ -1,4 +1,13 @@
-﻿.splash {
+﻿body {
+    font-family: 'Orienta', sans-serif;
+}
+
+h1, h2, h3, h4, h5, .brand, .splash {
+    font-family: 'Germania One', cursive;
+}
+
+
+.splash {
     text-align: center;
     margin: 10% 0 0 0;
 }
@@ -16,7 +25,6 @@
         display: inline-block;
         font-size: 5em;
         margin-top: 50px;
-        color: white;
     }
 
 .page-host {
@@ -53,13 +61,6 @@
     }
 }
 
-body {
-    font-family: 'Orienta', sans-serif;
-}
-
-h1, h2, h3, h4, h5, .brand, .splash {
-    font-family: 'Germania One', cursive;
-}
 
 
 .ul-attendees {

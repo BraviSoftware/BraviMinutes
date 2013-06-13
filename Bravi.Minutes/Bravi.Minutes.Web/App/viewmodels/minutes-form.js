@@ -47,18 +47,30 @@
                 attendees(attendeeList);
             },
             save = function (data, event) {
-                
+
                 //get right attendees
-                var selectedAttendees = attendees().filter(function(o) {
+                var selectedAttendees = attendees().filter(function (o) {
                     return o.selected() === true;
                 });
 
                 minute().attendees(selectedAttendees);
 
-                if (minute() && minute().id && minute().id() > 0)
-                    serviceMinutes.update(minute());
-                else
-                    serviceMinutes.create(minute());
+                // Editing
+                if (minute() && minute().id && minute().id() > 0) {
+                    $.when(serviceMinutes.update(minute())).done(success).fail(fail);
+                } // Creating
+                else {
+                    $.when(serviceMinutes.create(minute())).done(success).fail(fail);
+                }
+
+                function success() {
+                    toastr.success('Successfully Saved');
+                    router.navigateTo('#/');
+                }
+
+                function fail() {
+                    toastr.success('Error During Saving the Minute');
+                }
             },
             cancel = function (argument) {
                 router.navigateTo('#/');

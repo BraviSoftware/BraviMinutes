@@ -11,6 +11,8 @@ define(['durandal/app', 'durandal/viewLocator', 'durandal/system', 'durandal/plu
         system.debug(true);
         //>>excludeEnd("build");
 
+        configLogger();
+
         app.title = 'Durandal Starter Kit';
         app.start().then(function () {
             //Replace 'viewmodels' in the moduleId with 'views' to locate the view.
@@ -55,4 +57,17 @@ define(['durandal/app', 'durandal/viewLocator', 'durandal/system', 'durandal/plu
             //Show the app by setting the root view model for our application with a transition.
             app.setRoot('viewmodels/shell', 'entrance');
         });
+
+
+        function configLogger() {
+            toastr.options = {
+                "debug": false,
+                "positionClass": "toast-bottom-right",
+                "onclick": null,
+                "fadeIn": 300,
+                "fadeOut": 1000,
+                "timeOut": 5000,
+                "extendedTimeOut": 1000
+            };
+        }
     });
