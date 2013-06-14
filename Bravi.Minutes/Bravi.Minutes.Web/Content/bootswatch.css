@@ -6,6 +6,10 @@ span.sub-title-logo{
 [class^="icon-"], [class*=" icon-"] {
     margin-right: 5px;
 }
+
+i.icon-no-margin {
+    margin-right: 0;
+}
 /* END */
 
 

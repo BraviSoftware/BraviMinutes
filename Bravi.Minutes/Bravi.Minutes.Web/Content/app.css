@@ -6,6 +6,18 @@ h1, h2, h3, h4, h5, .brand, .splash {
     font-family: 'Germania One', cursive;
 }
 
+.subject {
+    cursor:pointer;
+}
+
+.minutes-short-links {
+    display:none;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+    .minutes-short-links .badge {
+        vertical-align:middle;
+    }
+
 
 .splash {
     text-align: center;

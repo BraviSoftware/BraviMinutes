@@ -4,6 +4,7 @@
     <div class="page-header">
         <div class="pull-right">
             <a class="btn btn-small btn-success" data-bind="click: $root.goToNew"><i class="icon-plus icon-white"></i>New Minute</a>
+            <a class="btn btn-small" data-bind="collapseMinutes: true"><i class="icon-list icon-no-margin"></i></a>
         </div>
         <h4>All important details should not be forgotten never</h4>
 
@@ -14,6 +15,12 @@
             <h3>
                 <span class="subject" data-bind="text: subject"></span>
                 <span class="pull-right">
+                    <span class="minutes-short-links">
+                        <span class="badge badge-info">
+                            <i class="icon-user"></i>
+                            <span data-bind="text: totalAttendees"></span>
+                        </span>
+                    </span>
                     <strong data-bind="formateDate: date"></strong>
                 </span>
             </h3>

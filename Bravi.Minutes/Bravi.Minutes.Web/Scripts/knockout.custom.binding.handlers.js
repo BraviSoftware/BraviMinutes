@@ -29,8 +29,8 @@
     //-------------------------
     ko.bindingHandlers.minutesFilter = {
         init: function (element, valueAccessor) {
-            $(document).on('keyup', element, function (event) {
-                var valueFilter = $(event.data).val();
+            $(element).on('keyup', function () {
+                var valueFilter = $(this).val();
 
                 $('article', '#minutes-list').filter(function (index) {
                     return containsTilte(this, valueFilter);
@@ -47,24 +47,61 @@
         }
     };
 
+    // Collapse Minutes
+    //-------------------------
+    ko.bindingHandlers.collapseMinutes = {
+        init: function (element, valueAccessor) {
+            $(element).on('click', function (event) {
+                var isShort = $(element).data('view') === 'short';
+
+
+                if (isShort) {
+                    $('article > div.well', '#minutes-list').slideDown();
+                    $('article > h3 .minutes-short-links', '#minutes-list').fadeOut();
+                }
+                else {
+                    $('article > div.well', '#minutes-list').slideUp();
+                    $('article > h3 .minutes-short-links', '#minutes-list').fadeIn();
+                }
+
+                $(element).data('view', isShort ? 'preview' : 'short');
+            });
+
+            $(document).on('click', '.subject', function (event) {
+                var article = $(this).parents('article');
+                var view = article.find('div.well');
+                var buttons = article.find('.minutes-short-links');
+
+                if (view.is(':visible')) {
+                    view.slideUp();
+                    buttons.fadeIn();
+                }
+                else {
+                    view.slideDown();
+                    buttons.fadeOut();
+                }
+            });
+        }
+    };
+
     // Wysihtml5
     //-------------------------
     ko.bindingHandlers.wysihtml5 = {
         init: function (element, valueAccessor, allBindingsAccessor) {
             setTimeout(function () {
-                    var control = $(element).wysihtml5({
-                        "events": {
-                            "change": function () {
-                                var observable = valueAccessor();
-                                observable(control.getValue());
-                            }
+                var control = $(element).wysihtml5({
+                    "events": {
+                        "change": function () {
+                            var observable = valueAccessor();
+                            observable(control.getValue());
                         }
-                    }).data("wysihtml5").editor;
-                
+                    }
+                }).data("wysihtml5").editor;
+
             }, 100);
         },
         update: function (element, valueAccessor, allBindingsAccessor) {
-            setTimeout(function(){
+            setTimeout(function () {
                 var content = valueAccessor();
                 if (content) {
                     var control = $(element).data("wysihtml5").editor;
@@ -78,7 +115,7 @@
     //-------------------------
     ko.bindingHandlers.scrollTop = {
         init: function (element, valueAccessor, allBindingsAccessor, viewModel) {
-            $(document).on('click', element, function () {
+            $(element).on('click', function () {
                 $('html, body').animate({
                     scrollTop: 0
                 }, 2000);
